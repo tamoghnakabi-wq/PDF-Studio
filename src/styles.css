@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  color-scheme: light;
+}
+.dark {
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  font-family:
+    -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue",
+    Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  cursor: default;
+  overflow: hidden;
+}
+
+/*
+ * Selection is opt-out per component (Tailwind `select-none` on chrome), NOT
+ * disabled globally on <body>: WKWebView blocks mouse caret placement inside
+ * inputs/textareas when ANY ancestor has -webkit-user-select: none, so text
+ * fields must never sit under a no-select subtree.
+ */
+input,
+textarea {
+  -webkit-user-select: text !important;
+  user-select: text !important;
+  cursor: text;
+}
+
+/* slim, macOS-like scrollbars */
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background: rgb(0 0 0 / 0.18);
+}
+.dark *::-webkit-scrollbar-thumb {
+  background: rgb(255 255 255 / 0.18);
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@keyframes ps-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.ps-fade-in {
+  animation: ps-fade-in 0.18s ease-out both;
+}

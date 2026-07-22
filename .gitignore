@@ -1,0 +1,37 @@
+# Dependencies
+node_modules/
+
+# Frontend and Tauri build output
+dist/
+src-tauri/target/
+src-tauri/gen/
+
+# Generated OCR runtime assets (recreated by `npm run assets`)
+public/tesseract/
+public/tessdata/
+
+# Signing keys, credentials, and local configuration
+src-tauri/updater.key
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.cer
+*.mobileprovision
+
+# Local tooling and logs
+.claude/
+.DS_Store
+*.local
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+coverage/
+.vite/
+.tauri/
